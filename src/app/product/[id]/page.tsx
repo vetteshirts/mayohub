@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useCart } from "@/app/cart/CartContext";
 
@@ -24,7 +25,7 @@ export default function ProductDetailPage() {
     2: { name: "Maserati", image: "/maserati.svg", price: 20 },
     3: { name: "Bobba", image: "/bobba.svg", price: 20 },
     4: { name: "Vroom", image: "/vroom.svg", price: 20 },
-    5: { name: "pythagoras", image: "/pythagoras.svg", price: 20 },
+    5: { name: "Pythagoras", image: "/pythagoras.svg", price: 20 },
   };
 
   const product = productDetails[productId] || productDetails[1];
@@ -32,25 +33,32 @@ export default function ProductDetailPage() {
 
   const handleAddToCart = () => {
     if (!selectedSize) return;
-    addToCart({ 
-      id: productId, 
-      name: product.name, 
-      image: product.image, 
-      price: product.price, 
-      size: selectedSize, 
+    addToCart({
+      id: productId,
+      name: product.name,
+      image: product.image,
+      price: product.price,
+      size: selectedSize,
       uniqueId: `${productId}-${selectedSize}-${Date.now()}`,
-      quantity: 1 
+      quantity: 1,
     });
+
+    // Flip animatie winkelwagentje
     setFlipping(true);
     setTimeout(() => setFlipping(false), 500);
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen space-y-8">
+      {/* Productafbeelding */}
       <div className="w-full max-w-md aspect-square overflow-hidden">
-        <img src={product.image} alt={`${product.name} T-Shirt`} className="w-full h-full object-cover" />
+        <Image src={product.image} alt={product.name} width={500} height={500} className="w-full h-full object-cover" />
       </div>
+
+      {/* Prijs */}
       <p className="text-2xl font-semibold text-center">€{product.price}</p>
+
+      {/* Selecteer maat */}
       <div className="text-center">
         <div className="flex justify-center space-x-2">
           {sizes.map((size) => (
@@ -66,6 +74,8 @@ export default function ProductDetailPage() {
           ))}
         </div>
       </div>
+
+      {/* Toevoegen aan winkelwagen */}
       <button
         onClick={handleAddToCart}
         className="w-full max-w-md py-3 rounded-full border-2 border-black border-dotted bg-black text-white hover:bg-gray-800"
@@ -73,6 +83,8 @@ export default function ProductDetailPage() {
       >
         {selectedSize ? `Add to Cart (${selectedSize})` : "Select a Size"}
       </button>
+
+      {/* Flip animatie voor winkelwagentje */}
       <style>
         {`
           @keyframes flip {

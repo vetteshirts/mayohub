@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { useCart } from "@/app/cart/CartContext";
 import { usePathname } from "next/navigation";
 
@@ -19,11 +20,18 @@ export default function NavBar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full flex items-center justify-between p-4 z-50">
-      {showBackButton && <a href="/" className="text-black text-xl">⬅</a>}
+      {/* Terugknop (indien niet op homepage) */}
+      {showBackButton && (
+        <Link href="/" className="text-black text-xl">
+          ⬅
+        </Link>
+      )}
+
+      {/* Winkelwagen rechts */}
       <div className="flex-1 flex justify-end relative">
-        <a href="/cart" className={`flex items-center space-x-1 text-black cart-icon ${animateCart ? "cart-moving" : ""}`}>
+        <Link href="/cart" className={`flex items-center space-x-1 text-black cart-icon ${animateCart ? "cart-moving" : ""}`}>
           🛒 <span>({cart.length})</span>
-        </a>
+        </Link>
       </div>
 
       {/* CSS animatie */}
