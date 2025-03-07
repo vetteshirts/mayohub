@@ -22,8 +22,8 @@ export default function NavBar() {
     <nav className="fixed top-0 left-0 w-full flex items-center justify-between p-4 z-50">
       {/* Terugknop (indien niet op homepage) */}
       {showBackButton && (
-        <Link href="/" className="text-black text-xl">
-          ⬅
+        <Link href="/" className="text-black text-xl hover:opacity-75 transition-opacity">
+          ←
         </Link>
       )}
 

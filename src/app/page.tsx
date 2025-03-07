@@ -31,17 +31,6 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <div className="max-w-6xl mx-auto px-4 py-8">
-        {/* Header met afbeelding */}
-        <header className="text-center mb-12">
-          <Image
-            src="/teequality.jpg"
-            alt="Tee Quality 7/10"
-            width={300}
-            height={300}
-            className="mx-auto w-1/4 max-w-full h-auto"
-          />
-        </header>
-
         {/* Producten Grid */}
         <div className="flex flex-col items-center space-y-[125px]">
           {products.map((product) => (
