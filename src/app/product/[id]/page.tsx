@@ -21,11 +21,11 @@ export default function ProductDetailPage() {
   if (productId === null) return null;
 
   const productDetails: { [key: number]: { name: string; image: string; price: number } } = {
-    1: { name: "Inside Job", image: "/insidejob.svg", price: 20 },
-    2: { name: "Maserati", image: "/maserati.svg", price: 20 },
-    3: { name: "Bobba", image: "/bobba.svg", price: 20 },
-    4: { name: "Vroom", image: "/vroom.svg", price: 20 },
-    5: { name: "Pythagoras", image: "/pythagoras.svg", price: 20 },
+    1: { name: "Inside Job", image: "/insidejob.svg", price: 30 },
+    2: { name: "Maserati", image: "/maserati.svg", price: 30 },
+    3: { name: "Bobba", image: "/bobba.svg", price: 30 },
+    4: { name: "Vroom", image: "/vroom.svg", price: 30 },
+    5: { name: "Pythagoras", image: "/pythagoras.svg", price: 30 },
   };
 
   const product = productDetails[productId] || productDetails[1];
