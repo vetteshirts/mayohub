@@ -71,7 +71,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="flex justify-center items-center mt-[125px]">
-          <Link href="mailto:manager@vetteshirts.nl" className="inline-block w-1/6 max-w-md">
+          <Link href="mailto:manager@vetteshirts.nl" className="inline-block w-[4%] max-w-md">
             <Image src="/logo.svg" alt="Logo" width={100} height={100} className="w-full cursor-pointer" />
           </Link>
         </footer>
