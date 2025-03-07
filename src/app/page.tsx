@@ -10,34 +10,38 @@ const products = [
     name: "insidejob",
     image: "/insidejob.svg",
     description: "Inside Job T-Shirt",
-    price: 30,
+    price: 25,
+    originalPrice: 35,
   },
   {
     id: 2,
     name: "maserati",
     image: "/maserati.svg",
     description: "Maserati T-Shirt",
-    price: 30,
+    price: 25,
+    originalPrice: 35,
   },
   {
     id: 3,
     name: "bobba",
     image: "/bobba.svg",
     description: "Bobba T-Shirt",
-    price: 30,
+    price: 25,
+    originalPrice: 35,
   },
   {
     id: 4,
     name: "vroom",
     image: "/vroom.svg",
     description: "Vroom T-Shirt",
-    price: 30,
+    price: 25,
+    originalPrice: 35,
   },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-black">
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Producten Grid */}
         <div className="flex flex-col items-center space-y-[125px]">
@@ -54,8 +58,11 @@ export default function Home() {
                   />
                 </div>
                 <div className="text-center">
-                  <h2 className="text-lg font-medium text-gray-900">{product.description}</h2>
-                  <p className="mt-1 text-sm text-gray-500">€{product.price}</p>
+                  <h2 className="text-lg font-medium text-white mb-2">{product.description}</h2>
+                  <div className="flex justify-center items-center space-x-2">
+                    <span className="text-red-500 text-xl font-bold">${product.price}.00</span>
+                    <span className="text-gray-400 line-through">${product.originalPrice}.00</span>
+                  </div>
                 </div>
               </div>
             </Link>

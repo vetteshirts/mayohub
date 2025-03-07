@@ -20,12 +20,12 @@ export default function ProductDetailPage() {
 
   if (productId === null) return null;
 
-  const productDetails: { [key: number]: { name: string; image: string; price: number } } = {
-    1: { name: "Inside Job", image: "/insidejob.svg", price: 30 },
-    2: { name: "Maserati", image: "/maserati.svg", price: 30 },
-    3: { name: "Bobba", image: "/bobba.svg", price: 30 },
-    4: { name: "Vroom", image: "/vroom.svg", price: 30 },
-    5: { name: "Pythagoras", image: "/pythagoras.svg", price: 30 },
+  const productDetails: { [key: number]: { name: string; image: string; price: number; originalPrice: number } } = {
+    1: { name: "Inside Job", image: "/insidejob.svg", price: 25, originalPrice: 35 },
+    2: { name: "Maserati", image: "/maserati.svg", price: 25, originalPrice: 35 },
+    3: { name: "Bobba", image: "/bobba.svg", price: 25, originalPrice: 35 },
+    4: { name: "Vroom", image: "/vroom.svg", price: 25, originalPrice: 35 },
+    5: { name: "Pythagoras", image: "/pythagoras.svg", price: 25, originalPrice: 35 },
   };
 
   const product = productDetails[productId] || productDetails[1];
@@ -49,14 +49,17 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen space-y-8">
+    <div className="flex flex-col items-center justify-center min-h-screen space-y-8 bg-black">
       {/* Productafbeelding */}
       <div className="w-full max-w-md aspect-square overflow-hidden">
         <Image src={product.image} alt={product.name} width={500} height={500} className="w-full h-full object-cover" />
       </div>
 
       {/* Prijs */}
-      <p className="text-2xl font-semibold text-center">€{product.price}</p>
+      <div className="flex items-center space-x-4">
+        <span className="text-2xl font-bold text-red-500">${product.price}.00</span>
+        <span className="text-xl text-gray-400 line-through">${product.originalPrice}.00</span>
+      </div>
 
       {/* Selecteer maat */}
       <div className="text-center">
