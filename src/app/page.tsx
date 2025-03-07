@@ -9,21 +9,25 @@ const products = [
     id: 1,
     name: "insidejob",
     image: "/insidejob.svg",
+    description: "Inside Job T-Shirt",
   },
   {
     id: 2,
     name: "maserati",
     image: "/maserati.svg",
+    description: "Maserati T-Shirt",
   },
   {
     id: 3,
     name: "bobba",
     image: "/bobba.svg",
+    description: "Bobba T-Shirt",
   },
   {
     id: 4,
     name: "vroom",
     image: "/vroom.svg",
+    description: "Vroom T-Shirt",
   },
 ];
 
@@ -44,6 +48,10 @@ export default function Home() {
                     height={500}
                     className="w-full h-full object-cover group-hover:opacity-75 transition"
                   />
+                </div>
+                <div className="text-center">
+                  <h2 className="text-lg font-medium text-gray-900">{product.description}</h2>
+                  <p className="mt-1 text-sm text-gray-500">€20</p>
                 </div>
               </div>
             </Link>
