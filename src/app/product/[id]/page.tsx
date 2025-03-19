@@ -49,7 +49,7 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen space-y-8 bg-black">
+    <div className="flex flex-col items-center justify-center min-h-screen space-y-8 bg-white">
       {/* Productafbeelding */}
       <div className="w-full max-w-md aspect-square overflow-hidden">
         <Image src={product.image} alt={product.name} width={500} height={500} className="w-full h-full object-cover" />
